@@ -327,6 +327,7 @@ namespace IntelOrca.Biohazard.BioRand
             UpdateEstimateCompletion();
             UpdateItemPie();
             UpdateEnemyPie();
+            // UpdateSliderTooltips();
         }
 
         private void UpdateEstimateCompletion()
@@ -442,7 +443,23 @@ namespace IntelOrca.Biohazard.BioRand
             pieEnemies.Update();
         }
 
-        private void UpdateConfig()
+        private void UpdateSliderTooltips()
+        {
+            sliderAmmo.ToolTip = $"(Value: {sliderAmmo.Value})";
+			sliderAmmoQuantity.ToolTip = $"(Value: {sliderAmmoQuantity.Value})";
+			sliderAreaCount.ToolTip = $"(Value: {sliderAreaCount.Value + 1})";
+			sliderAreaSize.ToolTip = $"(Value: {sliderAreaSize.Value + 1})";
+			sliderEnemyCount.ToolTip = $"(Value: {sliderEnemyCount.Value + 1})";
+			sliderEnemyDifficulty.ToolTip = $"(Value: {Math.Round(sliderEnemyDifficulty.Value / sliderEnemyDifficulty.Maximum * 100)}%)";
+			sliderEnemyRooms.ToolTip = $"(Value: {Math.Round(sliderEnemyRooms.Value / sliderEnemyRooms.Maximum * 100)}%)";
+			sliderGunpowder.ToolTip = $"(Value: {sliderGunpowder.Value})";
+			sliderHealth.ToolTip = $"(Value: {sliderHealth.Value})";
+			sliderInkRibbons.ToolTip = $"(Value: {sliderInkRibbons.Value})";
+			sliderWeaponQuantity.ToolTip = $"(Value: {sliderWeaponQuantity.Value + 1})";
+		}
+
+
+		private void UpdateConfig()
         {
             _config.ChangePlayer = chkPlayer.IsChecked == true;
             _config.Player0 = (byte)dropdownPlayer0.SelectedIndex;
